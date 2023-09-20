@@ -91,8 +91,8 @@ ul>li>a {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    display: flex;
-    align-items: center;
+    display: inline-flex;
+    align-items: flex-start;
     padding: 10px 24px;
     gap: 8px;
 }
@@ -105,8 +105,6 @@ ul>li>a {
     background-image: url(images/Circle\ design.svg);
     background-size: 475px 475px;
     background-position: center;
-    width: 475px;
-    height: 475px;
 }
 
 .image>img {
@@ -253,8 +251,8 @@ h4 {
 }
 
 .f-image>img {
-    width: 404px;
-    height: 270px;
+    max-width: 404px;
+    max-height: 270px;
 }
 
 .f-content {
@@ -309,6 +307,7 @@ p {
     display: flex;
     justify-content: center;
     padding: 50px 0;
+    max-width: 100% vh;
 }
 
 .footer-content {
@@ -333,11 +332,105 @@ p {
     font-style: normal;
     font-weight: 700;
     line-height: 24px;
-    /* 171.429% */
 }
 
 .social {
     display: flex;
     gap: 16px;
     margin-top: 17px;
+}
+
+
+/* Responsive design  */
+
+@media screen and (max-width: 576px) {
+    /* NAv Section  */
+    .nav{
+        flex-direction: column;
+    }
+    .nav >h3{
+        margin: 0 auto;
+        font-size: 33px;
+    }
+    .ul-container{
+        display: none;
+    }
+    /* Banner Section  */
+    .banner{
+        flex-wrap: wrap;
+    }
+    .moto{
+        order: 2;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .image{
+        order: 1;
+        background-size: 257px;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+    }
+    .image> img{
+        width: 202px;
+        height: 190px;
+        margin: 51px 33px 16px 22px;
+    }
+    /* Partners Section  */
+    .partners{
+        flex-wrap: wrap;
+    }
+    /* Products Section  */
+    .products-section{
+        grid-template-columns: 1fr;
+    }
+
+    /* Featured Products Section  */
+    .featured-products{
+        flex-wrap: wrap;
+    }
+    .f-content{
+        order: 1;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+    .f-image{
+        order: 2;
+    }
+    .f-image> img {
+        width:299px;
+        height: 188px;
+    }
+}
+
+@media screen and (min-width:577px) and (max-width:768px) {
+    .banner{
+        flex-wrap: wrap;
+    }
+    .image{
+        order: 1;
+        margin: 0 auto;
+    }
+    .moto{
+        order: 2;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .partners{
+        flex-wrap: wrap;
+    }
+    .products-section{
+        grid-template-columns: 1fr 1fr;
+    }
+    /* Featured Products Section  */
+    .featured-products{
+        flex-wrap: wrap;
+    }
+    .f-content{
+        order: 1;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+    .f-image{
+        order: 2;
+    }
 }
